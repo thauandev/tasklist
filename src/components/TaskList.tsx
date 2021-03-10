@@ -27,8 +27,6 @@ export function TaskList() {
     } else {
       alert("O título não pode ser em branco");
     }
-
-    setNewTaskTitle("");
   }
 
   function handleToggleTaskCompletion(id: number) {
