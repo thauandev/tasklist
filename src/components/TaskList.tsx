@@ -13,13 +13,12 @@ interface Task {
 export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState("");
-  const [counterId, setCounterId] = useState(1);
 
   function handleCreateNewTask() {
     if (newTaskTitle) {
       setTasks([
         {
-          id: counterId,
+          id: Math.random(),
           title: newTaskTitle,
           isComplete: false,
         },
@@ -30,9 +29,8 @@ export function TaskList() {
     }
 
     setNewTaskTitle("");
-    setCounterId(counterId + 1);
   }
-  console.log(tasks);
+
   function handleToggleTaskCompletion(id: number) {
     setTasks((tasks) =>
       tasks.map((task) => {
@@ -50,7 +48,7 @@ export function TaskList() {
 
   function handleRemoveTask(id: number) {
     const newTasklist = tasks.filter((task) => task.id !== id);
-    setTasks([...newTasklist]);
+    setTasks(newTasklist);
   }
 
   return (
