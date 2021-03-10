@@ -17,12 +17,12 @@ export function TaskList() {
   function handleCreateNewTask() {
     if (newTaskTitle) {
       setTasks([
+        ...tasks,
         {
           id: Math.random(),
           title: newTaskTitle,
           isComplete: false,
         },
-        ...tasks,
       ]);
     } else {
       alert("O título não pode ser em branco");
